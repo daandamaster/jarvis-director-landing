@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JARVIS Director — Films from a bible</title>
+  <meta name="description" content="JARVIS Director by Grok Pre Productions. Lock look. Lock cast. Shoot. Stitch. Founding desks at Fix Your Film." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --void: #0a0a0b;
+      --panel: #111113;
+      --line: rgba(245,237,224,.14);
+      --ivory: #f5ede0;
+      --mute: rgba(245,237,224,.62);
+      --red: #c3122f;
+      --red-dim: #8a0e22;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--void); color: var(--ivory); font-family: Inter, system-ui, sans-serif; }
+    body { letter-spacing: .01em; }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 0 18px; border-bottom: 1px solid var(--line);
+    }
+    .mark { font-family: "Bebas Neue", sans-serif; font-size: 28px; letter-spacing: .12em; }
+    .mark span { color: var(--red); }
+    nav { display: flex; gap: 22px; align-items: center; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); }
+    nav a { text-decoration: none; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--red); color: var(--ivory); text-decoration: none;
+      font-size: 12px; letter-spacing: .16em; text-transform: uppercase;
+      padding: 12px 18px; border: 0; cursor: pointer;
+    }
+    .btn.ghost { background: transparent; border: 1px solid var(--line); }
+    .hero { padding: 72px 0 36px; }
+    .kicker { font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: var(--mute); }
+    h1 { font-family: "Bebas Neue", sans-serif; font-size: clamp(56px, 10vw, 112px); line-height: .88; letter-spacing: .04em; margin: 16px 0 18px; }
+    .lede { max-width: 560px; color: var(--mute); line-height: 1.6; }
+    .cta-row { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+    .cinema {
+      margin: 48px 0 12px; position: relative; aspect-ratio: 16/9;
+      background: linear-gradient(180deg, #161618 0%, #0c0c0e 100%);
+      border: 1px solid var(--line);
+    }
+    .cinema:before, .cinema:after, .cinema i:before, .cinema i:after {
+      content: ""; position: absolute; width: 22px; height: 22px; border-color: var(--ivory); border-style: solid;
+    }
+    .cinema:before { top: 10px; left: 10px; border-width: 2px 0 0 2px; }
+    .cinema:after { top: 10px; right: 10px; border-width: 2px 2px 0 0; }
+    .cinema i:before { bottom: 10px; left: 10px; border-width: 0 0 2px 2px; }
+    .cinema i:after { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
+    .cinema .meta {
+      position: absolute; inset: 18px 24px auto 24px;
+      display: flex; justify-content: space-between;
+      font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--mute);
+    }
+    .cinema .center {
+      position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 24px;
+    }
+    .cinema h2 { font-family: "Bebas Neue", sans-serif; font-size: clamp(36px, 6vw, 64px); letter-spacing: .08em; }
+    .ticks { display: flex; gap: 6px; margin-top: 18px; }
+    .ticks b { width: 28px; height: 3px; background: var(--red); display: block; }
+    .ticks span { width: 28px; height: 3px; background: var(--line); display: block; }
+    .floor {
+      display: flex; flex-wrap: wrap; gap: 10px 18px; padding: 22px 0 64px;
+      font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--mute);
+    }
+    .floor strong { color: var(--ivory); }
+    section { padding: 8px 0 72px; }
+    h3 { font-family: "Bebas Neue", sans-serif; font-size: 42px; letter-spacing: .08em; margin-bottom: 16px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { background: var(--panel); border: 1px solid var(--line); padding: 22px; min-height: 180px; }
+    .card .tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
+    .card h4 { font-family: "Bebas Neue", sans-serif; font-size: 28px; letter-spacing: .06em; margin-bottom: 8px; }
+    .card p { color: var(--mute); line-height: 1.55; font-size: 14px; }
+    .price { font-family: "Bebas Neue", sans-serif; font-size: 48px; margin: 8px 0; }
+    .fine { font-size: 12px; color: var(--mute); margin-top: 8px; }
+    footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--mute); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    @media (max-width: 800px) {
+      .grid { grid-template-columns: 1fr; }
+      nav .hide { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="mark">JARVIS <span>//</span> DIRECTOR</div>
+      <nav>
+        <a class="hide" href="#floor">Floor</a>
+        <a class="hide" href="#proof">Proof</a>
+        <a class="hide" href="#desks">Desks</a>
+        <a class="btn" href="https://fixyourfilm.today">Open a desk</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <p class="kicker">On set · System ready · GPP Mk VII</p>
+      <h1>Films from<br>a bible.</h1>
+      <p class="lede">Lock look. Lock cast. Shoot. Stitch. JARVIS is the house face of Grok Pre Productions — a director console for people who need a cut, not a prompt toy.</p>
+      <div class="cta-row">
+        <a class="btn" href="https://fixyourfilm.today">Open a founding desk</a>
+        <a class="btn ghost" href="#desks">See the packs</a>
+      </div>
+      <div class="cinema" aria-label="Studio cinema">
+        <i></i>
+        <div class="meta"><span>Sequence 01 / De AI Storm</span><span>00:01:30</span></div>
+        <div class="center">
+          <div>
+            <p class="kicker">Proof reel</p>
+            <h2>DE AI STORM</h2>
+            <p class="lede" style="margin:12px auto 0;max-width:420px">Eleven shots. Dutch corporate documentary. Horapark to interview MCU. First print of the house floor.</p>
+            <div class="ticks" aria-hidden="true"><b></b><b></b><b></b><span></span><span></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="floor" id="floor">
+        <strong>Lock look</strong> → <strong>Lock cast</strong> → Plan scene → Shoot → Stitch
+      </div>
+    </section>
+
+    <section id="proof">
+      <h3>The floor</h3>
+      <div class="grid">
+        <article class="card"><div class="tag">01</div><h4>Lock look</h4><p>Light, lens, location, grain. The world is chosen before a face enters it.</p></article>
+        <article class="card"><div class="tag">02</div><h4>Lock cast</h4><p>One face across the cut. No drift. The lead stays the lead.</p></article>
+        <article class="card"><div class="tag">03</div><h4>Plan scene</h4><p>A bible-strict shot list. Size, move, duration. Then the floor rolls.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h3>Who it is for</h3>
+      <div class="grid">
+        <article class="card"><h4>Founders</h4><p>A 60–90 second house film with a locked face and a locked location.</p></article>
+        <article class="card"><h4>Agencies</h4><p>A floor you can brief like a director instead of rolling dice in a chat box.</p></article>
+        <article class="card"><h4>Local desks</h4><p>Dutch-language cuts for real businesses. First proof: De AI Storm.</p></article>
+      </div>
+    </section>
+
+    <section id="desks">
+      <h3>Founding desks</h3>
+      <p class="lede" style="margin-bottom:24px">Fifty seats. Credits live on the desk. A clip reserves credit, then commits or releases. Netherlands-first: iDEAL and card.</p>
+      <div class="grid">
+        <article class="card">
+          <div class="tag">Test</div>
+          <div class="price">€9,90</div>
+          <h4>90 credits · 2 clips</h4>
+          <p>A first answer print. Enough to see the floor.</p>
+        </article>
+        <article class="card">
+          <div class="tag">Unit</div>
+          <div class="price">€39</div>
+          <h4>450 credits · 10 clips</h4>
+          <p>A short scene or a tight commercial beat sheet.</p>
+        </article>
+        <article class="card">
+          <div class="tag">Desk</div>
+          <div class="price">€99</div>
+          <h4>1.350 credits · 30 clips</h4>
+          <p>Look lock, cast lock, shoot, stitch. A full short on the desk.</p>
+        </article>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="https://fixyourfilm.today">Open a desk</a>
+        <p class="fine">Honest note: Storm is the proof reel, not a graded delivery master. Production look is locked. Delivery QC is the next pass on paid desks.</p>
+      </div>
+    </section>
+
+    <footer>
+      <span>GPP Mk VII · JARVIS Director · Netherlands</span>
+      <span>Fix Your Film · 50 founding desks</span>
+    </footer>
+  </div>
+</body>
+</html>
