@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>JARVIS Director — Films from a bible</title>
   <meta name="description" content="JARVIS Director by Grok Pre Productions. Lock look. Lock cast. Shoot. Stitch. Founding desks at Fix Your Film." />
+  <meta property="og:title" content="JARVIS Director — Films from a bible" />
+  <meta property="og:description" content="Talk like a director. The studio executes. GPP Mk VII founding desks." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0a0a0b" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -16,11 +20,9 @@
       --ivory: #f5ede0;
       --mute: rgba(245,237,224,.62);
       --red: #c3122f;
-      --red-dim: #8a0e22;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { background: var(--void); color: var(--ivory); font-family: Inter, system-ui, sans-serif; }
-    body { letter-spacing: .01em; }
     a { color: inherit; }
     .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
     header {
@@ -42,7 +44,7 @@
     .kicker { font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: var(--mute); }
     h1 { font-family: "Bebas Neue", sans-serif; font-size: clamp(56px, 10vw, 112px); line-height: .88; letter-spacing: .04em; margin: 16px 0 18px; }
     .lede { max-width: 560px; color: var(--mute); line-height: 1.6; }
-    .cta-row { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+    .cta-row { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; align-items: center; }
     .cinema {
       margin: 48px 0 12px; position: relative; aspect-ratio: 16/9;
       background: linear-gradient(180deg, #161618 0%, #0c0c0e 100%);
@@ -64,7 +66,7 @@
       position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 24px;
     }
     .cinema h2 { font-family: "Bebas Neue", sans-serif; font-size: clamp(36px, 6vw, 64px); letter-spacing: .08em; }
-    .ticks { display: flex; gap: 6px; margin-top: 18px; }
+    .ticks { display: flex; gap: 6px; margin-top: 18px; justify-content: center; }
     .ticks b { width: 28px; height: 3px; background: var(--red); display: block; }
     .ticks span { width: 28px; height: 3px; background: var(--line); display: block; }
     .floor {
@@ -75,15 +77,23 @@
     section { padding: 8px 0 72px; }
     h3 { font-family: "Bebas Neue", sans-serif; font-size: 42px; letter-spacing: .08em; margin-bottom: 16px; }
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .card { background: var(--panel); border: 1px solid var(--line); padding: 22px; min-height: 180px; }
+    .grid.five { grid-template-columns: repeat(5, 1fr); }
+    .card { background: var(--panel); border: 1px solid var(--line); padding: 22px; min-height: 160px; }
     .card .tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
     .card h4 { font-family: "Bebas Neue", sans-serif; font-size: 28px; letter-spacing: .06em; margin-bottom: 8px; }
     .card p { color: var(--mute); line-height: 1.55; font-size: 14px; }
     .price { font-family: "Bebas Neue", sans-serif; font-size: 48px; margin: 8px 0; }
-    .fine { font-size: 12px; color: var(--mute); margin-top: 8px; }
+    .fine { font-size: 12px; color: var(--mute); margin-top: 8px; max-width: 520px; }
+    form.slate {
+      display: grid; gap: 12px; max-width: 560px;
+    }
+    form.slate input, form.slate textarea {
+      background: var(--panel); border: 1px solid var(--line); color: var(--ivory);
+      font: inherit; padding: 12px 14px; width: 100%;
+    }
     footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--mute); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-    @media (max-width: 800px) {
-      .grid { grid-template-columns: 1fr; }
+    @media (max-width: 900px) {
+      .grid, .grid.five { grid-template-columns: 1fr; }
       nav .hide { display: none; }
     }
   </style>
@@ -101,12 +111,13 @@
     </header>
 
     <section class="hero">
-      <p class="kicker">On set · System ready · GPP Mk VII</p>
+      <p class="kicker">On set · System ready · GPP Mk VII · Fable-class</p>
       <h1>Films from<br>a bible.</h1>
-      <p class="lede">Lock look. Lock cast. Shoot. Stitch. JARVIS is the house face of Grok Pre Productions — a director console for people who need a cut, not a prompt toy.</p>
+      <p class="lede">Talk like a director. The studio executes. Lock look. Lock cast. Shoot. Stitch. JARVIS is the house face of Grok Pre Productions — a console for people who need a cut, not a prompt toy.</p>
+      <p class="lede" style="margin-top:10px">Nederlandstalige cuts voor echte desks. Eerste print: De AI Storm.</p>
       <div class="cta-row">
         <a class="btn" href="https://fixyourfilm.today">Open a founding desk</a>
-        <a class="btn ghost" href="#desks">See the packs</a>
+        <a class="btn ghost" href="#slate">Book a slate</a>
       </div>
       <div class="cinema" aria-label="Studio cinema">
         <i></i>
@@ -121,16 +132,18 @@
         </div>
       </div>
       <div class="floor" id="floor">
-        <strong>Lock look</strong> → <strong>Lock cast</strong> → Plan scene → Shoot → Stitch
+        <strong>Lock look</strong> → <strong>Lock cast</strong> → <strong>Plan scene</strong> → <strong>Shoot</strong> → <strong>Stitch</strong>
       </div>
     </section>
 
     <section id="proof">
       <h3>The floor</h3>
-      <div class="grid">
+      <div class="grid five">
         <article class="card"><div class="tag">01</div><h4>Lock look</h4><p>Light, lens, location, grain. The world is chosen before a face enters it.</p></article>
         <article class="card"><div class="tag">02</div><h4>Lock cast</h4><p>One face across the cut. No drift. The lead stays the lead.</p></article>
         <article class="card"><div class="tag">03</div><h4>Plan scene</h4><p>A bible-strict shot list. Size, move, duration. Then the floor rolls.</p></article>
+        <article class="card"><div class="tag">04</div><h4>Shoot</h4><p>Takes land in order. One clip, then the next. The list is the law.</p></article>
+        <article class="card"><div class="tag">05</div><h4>Stitch</h4><p>The cut is the product. Runtime locked. Voice on picture.</p></article>
       </div>
     </section>
 
@@ -168,13 +181,24 @@
       </div>
       <div class="cta-row">
         <a class="btn" href="https://fixyourfilm.today">Open a desk</a>
-        <p class="fine">Honest note: Storm is the proof reel, not a graded delivery master. Production look is locked. Delivery QC is the next pass on paid desks.</p>
+        <p class="fine">Storm is the proof reel, not a graded delivery master. Production look is locked. Delivery QC is the next pass on paid desks.</p>
       </div>
+    </section>
+
+    <section id="slate">
+      <h3>Book a slate</h3>
+      <p class="lede" style="margin-bottom:18px">One paragraph is enough. Look, cast, runtime. We lock before frame one.</p>
+      <form class="slate" action="https://fixyourfilm.today" method="get">
+        <input type="text" name="name" placeholder="Name / desk" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="brief" rows="4" placeholder="The scene you need…" required></textarea>
+        <button class="btn" type="submit">Send to the desk</button>
+      </form>
     </section>
 
     <footer>
       <span>GPP Mk VII · JARVIS Director · Netherlands</span>
-      <span>Fix Your Film · 50 founding desks</span>
+      <span>Grok Pre Productions · Fix Your Film · 50 founding desks</span>
     </footer>
   </div>
 </body>
