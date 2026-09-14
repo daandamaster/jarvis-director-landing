@@ -1,6 +1,7 @@
 # JARVIS Director
 
-Customer landing for Grok Pre Productions.
-House face: JARVIS Director. Money door: Fix Your Film founding desks.
+Customer landing for GPP Mk VII / Fix Your Film founding desks.
 
-Live desk: https://fixyourfilm.today
+Talk like a director. The studio executes.
+
+Open a desk: https://fixyourfilm.today
